@@ -1,4 +1,4 @@
-\documentclass[a4paper,14pt,oneside,openany]{memoir}
+\documentclass[a4paper, 14pt, oneside,openany]{memoir}
 
 %%% Задаем поля, отступы и межстрочный интервал %%%
 
@@ -7,6 +7,10 @@
 \parindent=1.25cm % Абзацный отступ 1.25 см, приблизительно равно пяти знакам, как по ГОСТ
 \usepackage{indentfirst} % Добавляем отступ к первому абзацу
 %\linespread{1.3} % Межстрочный интервал (наиболее близко к вордовскому полуторному) - тут вместо этого используется команда OnehalfSpacing*
+
+%%% Работаем с URL
+\usepackage{xurl}
+
 
 %%% Задаем языковые параметры и шрифт %%%
 \usepackage{graphicx}
@@ -62,6 +66,17 @@
 \newenvironment{problem}[2][]
     { \begin{mdframed}[backgroundcolor=gray!10] \textbf{#1 #2.} \\}
     {  \end{mdframed}}
+
+
+% %%% Задаём вид для списков %%%
+% \newenvironment{itemlist}[1]{%
+%   \begin{trivlist}
+%   \item \textbf{\large #1}
+%   \begin{itemize}
+% }{%
+%   \end{itemize}
+%   \end{trivlist}
+% }
 
 
 %%% Выравнивание и переносы %%%
@@ -196,7 +211,8 @@ isbn=false,                                         % Не показывать 
 
 \begin{document}
 
-\input{1_title}                                     % Титульник
+\input{1_title_ru}                                     % Титульник
+\input{1_title_eng}                                 % Титульник на английском
 
 \newpage % Переходим на новую страницу
 \setcounter{page}{2} % Начинаем считать номера страниц со второй
@@ -208,6 +224,7 @@ isbn=false,                                         % Не показывать 
 \input{2_body}                                      % Термины и сокращения + Введение
 \input{3_chap1}                                     % Первая глава
 \input{4_chap2}                                     % Вторая глава
+\input{5_chap3}                                     % Третья глава
 \input{conclusion}                                  % Заключение
 
 \printbibliography[title=Список использованных источников] 
